@@ -1,23 +1,7 @@
 // @flow
-// export type Id = number
-
-// export type Todo = {
-//   description: string,
-//   completed: boolean,
-//   id: Id
-// }
 
 export const newTodo = (description, id) =>
   ({ description, completed: false, id })
-
-// export type Filter = '/' | '/active' | '/completed'
-
-// export type App = {
-//   todos: Todo[],
-//   focus: ?Id,
-//   filter: Filter,
-//   nextId: Id
-// }
 
 export const emptyApp =
   { todos: [], focus: null, filter: '/', nextId: 0 }
@@ -63,12 +47,6 @@ export const setFilter = (filter) => (app) =>
   ({
     ...app,
     filter
-  })
-
-export const setFocus = (focus) => (app) =>
-  ({
-    ...app,
-    focus
   })
 
 export const updateDescription = (description, id) => (app) =>

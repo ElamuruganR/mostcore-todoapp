@@ -26,7 +26,6 @@ export const View = (addAction) => (appState) => {
   return <div>
     <header className='header'>
       <h1>todos</h1>
-      {/* {console.log('AddAction:',addAction)} */}
       <input className='new-todo' name='new-todo' placeholder='What needs to be done?' autoComplete='off' autoFocus onKeyPress={compose(addAction, handleAdd)} />
     </header>
     <TodoList addAction={addAction} allCompleted={todos.length > 0 && remaining === 0}>
@@ -39,12 +38,6 @@ export const View = (addAction) => (appState) => {
     {todos.length > 0 && <Footer addAction={addAction} remaining={remaining} completed={completed} filter={appState.filter} />}</div>
 }
 
-// type TodoListProps = {
-//   children?: React.Node,
-//   addAction: Action => void,
-//   allCompleted: boolean
-// }
-
 export const TodoList = (props) =>
   <section className='main'>
     <input id='toggle-all' className='toggle-all' type='checkbox' checked={props.allCompleted} onChange={compose(props.addAction, handleToggleAll)} />
@@ -53,11 +46,6 @@ export const TodoList = (props) =>
       {props.children}
     </ul>
   </section>
-
-// type TodoProps = {
-//   addAction: Action => void,
-//   todo: Todo
-// }
 
 export const TodoItem = ({ addAction, todo }) => {
   const show = () => {
@@ -73,19 +61,11 @@ export const TodoItem = ({ addAction, todo }) => {
     <input 
         className={`edit id${todo.id}`} 
         placeholder = {`Edit the above value here (${todo.description})`}
-        autoFocus
         onKeyPress={compose(addAction, handleUpdate(todo.id))} 
     />
   </li>
   );
   }
-
-// type FooterProps = {
-//   addAction: Action => void,
-//   remaining: number,
-//   completed: number,
-//   filter: Filter
-// }
 
 export const Footer = ({ addAction, remaining, completed, filter }) =>
   <footer className='footer'>

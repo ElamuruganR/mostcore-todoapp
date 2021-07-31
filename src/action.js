@@ -3,17 +3,7 @@
 import { id } from '@most/prelude'
 import { addTodo, updateCompleted, removeTodo, updateAllCompleted, removeAllCompleted, setFilter, updateDescription } from './model'
 
-// type As<B, A = *> = $Call<A, A => B>
-
-// type DOMEvent<E> = { target: E } & Event
-// type InputEvent = DOMEvent<HTMLInputElement>
-// type ClickEvent = DOMEvent<HTMLElement>
-// type HashChangeEvent = { newURL: string } & Event
-
 const ENTER_KEY = 'Enter'
-// const ESC_KEY = 'Escape'
-
-// export type Action = App => App
 
 export const runAction = (app, action) =>{
   console.log('Action():',action);
@@ -56,7 +46,5 @@ export const handleRemoveAllCompleted = (e) =>
   removeAllCompleted
 
 export const handleFilterChange = (e) =>{
-  console.log('url:',e.newURL);
-  console.log('replaced: ',e.newURL.replace(/^.*#/, ''));
   return  setFilter(e.newURL.replace(/^.*#/, ''))
 }
