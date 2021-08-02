@@ -6,8 +6,6 @@ import { addTodo, updateCompleted, removeTodo, updateAllCompleted, removeAllComp
 const ENTER_KEY = 'Enter'
 
 export const runAction = (app, action) =>{
-  console.log('Action():',action);
-  console.log('Action(App):',app);
   return action(app)
 }
 
